@@ -18,24 +18,30 @@ public class Programa {
 		
 		Produto novo = new Produto(nome, preco);
 		
-		System.out.println();
+		System.out.println("#############################");
 		System.out.println(novo);
-		System.out.println();
+		System.out.println("##############################");
 		System.out.println("Como gostaria de pagar (avista/parcelado): ");
 		char resp = sc.next().charAt(0);
+		
+		int quantParcela = 0;
 		
 		if(resp == 'a') {
 			novo.desconto();
 		}else if(resp == 'p') {
 			System.out.println();
 			System.out.print("Quantas parcelas: ");
-			int parcela = sc.nextInt();
-			double novoPreco = novo.parcelado(parcela);
+			quantParcela = sc.nextInt();
+			double novoPreco = novo.parcelado(quantParcela);
 			novo.setPreco(novoPreco);
 		}
 		
-		System.out.println();
-		System.out.println(novo);
+		double valorParcela = novo.getPreco() / quantParcela;
+		
+		System.out.println("##############################");
+		System.out.println(novo + " em " + quantParcela + " parcelas de " 
+							+ String.format("%.2f", valorParcela));
+		System.out.println("##############################");
 		
 		sc.close();
 	}

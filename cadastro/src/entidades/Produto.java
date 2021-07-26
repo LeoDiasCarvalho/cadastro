@@ -32,6 +32,10 @@ public class Produto {
 		return preco -= preco * 2 / 100;
 	}
 	
+	public double parcelado() {
+		return preco += preco * 2 / 100;
+	}
+	
 	
 	
 	

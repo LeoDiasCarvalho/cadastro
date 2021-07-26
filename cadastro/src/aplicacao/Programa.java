@@ -30,8 +30,12 @@ public class Programa {
 			System.out.println();
 			System.out.print("Quantas parcelas: ");
 			int parcela = sc.nextInt();
-			novo.parcelado(parcela);
+			double novoPreco = novo.parcelado(parcela);
+			novo.setPreco(novoPreco);
 		}
+		
+		System.out.println();
+		System.out.println(novo);
 		
 		sc.close();
 	}
